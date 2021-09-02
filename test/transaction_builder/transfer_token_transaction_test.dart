@@ -73,7 +73,7 @@ void main(){
         'to address must be same with expected to address',
         (){
           expect(_toAddress.toLowerCase(), transaction.toAddress.toLowerCase());
-          expect(_toAddress.toLowerCase(), transaction.to.hex.toLowerCase());
+          expect(_toAddress.toLowerCase(), transaction.receipent.hex.toLowerCase());
         }
       );
       test(
