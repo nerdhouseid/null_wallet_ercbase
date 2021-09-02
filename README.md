@@ -1,4 +1,5 @@
-A library for Dart developers.
+A ErcBase library from Null Wallet.
+[![Build Status](https://github.com/dart-lang/http/workflows/Dart%20CI/badge.svg)](https://github.com/dart-lang/http/actions?query=workflow%3A"Dart+CI"+branch%develop)
 
 ## Usage
 
