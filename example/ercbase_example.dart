@@ -1,7 +1,7 @@
 import 'dart:math';
-import 'package:ercbase/src/rpc/transaction_rpc.dart';
-import 'package:ercbase/src/utils/transaction_builder/transfer_token_transaction.dart';
-import 'package:ercbase/src/wallet/wallet.dart';
+import 'package:null_wallet_ercbase/src/rpc/transaction_rpc.dart';
+import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction.dart';
+import 'package:null_wallet_ercbase/src/wallet/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 
 void main() async{

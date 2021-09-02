@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:ercbase/src/utils/bip32.dart';
+import 'package:null_wallet_ercbase/src/utils/bip32.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
