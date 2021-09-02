@@ -17,8 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-        token: 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
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
       # You can specify other versions if desired, see documentation here:
