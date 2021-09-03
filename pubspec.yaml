@@ -14,7 +14,11 @@ dependencies:
   hex: ^0.2.0
   secp256k1: ^0.3.0
   http: ^0.13.3
+  equatable: ^2.0.3
+  json_annotation: ^4.1.0
 
 dev_dependencies:
   pedantic: ^1.10.0
   test: ^1.16.0
+  build_runner: ^2.0.0
+  json_serializable: ^5.0.0

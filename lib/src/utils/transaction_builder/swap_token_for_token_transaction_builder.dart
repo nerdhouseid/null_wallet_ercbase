@@ -1,7 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:null_wallet_ercbase/src/utils/smartcontract.dart';
 import 'package:web3dart/web3dart.dart';
+
+import '../smartcontract.dart';
 
 class SwapExactTokenForTokenTransactionBuilder implements Transaction{
   final BigInt amountIn;
@@ -14,6 +15,7 @@ class SwapExactTokenForTokenTransactionBuilder implements Transaction{
   final BigInt? gasPrices;
   final BigInt? gasAmount;
   final int? nonces;
+  final double slippage;
   SwapExactTokenForTokenTransactionBuilder({
     required this.amountIn,
     required this.amountOut,
@@ -24,7 +26,8 @@ class SwapExactTokenForTokenTransactionBuilder implements Transaction{
     required this.deadline,
     this.gasAmount,
     this.nonces,
-    this.gasPrices
+    this.gasPrices,
+    this.slippage = 0.5,
   });
   @override
   Transaction copyWith({EthereumAddress? from, EthereumAddress? to, int? maxGas, EtherAmount? gasPrice, EtherAmount? value, Uint8List? data, int? nonce}) {
@@ -50,7 +53,7 @@ class SwapExactTokenForTokenTransactionBuilder implements Transaction{
   List<dynamic> get parameters{
     return [
       amountIn,
-      amountOut,
+      amountOutMinSlippage,
       path,
       from,
       BigInt.from(deadline),
@@ -66,7 +69,9 @@ class SwapExactTokenForTokenTransactionBuilder implements Transaction{
   Uint8List get data => function.encodeCall(
     [parameters]
   );
-
+  BigInt get amountOutMinSlippage{
+    return amountOut - (amountOut * BigInt.from((slippage / 100)));
+  }
   @override
   EthereumAddress get from => EthereumAddress.fromHex(fromAddress);
 

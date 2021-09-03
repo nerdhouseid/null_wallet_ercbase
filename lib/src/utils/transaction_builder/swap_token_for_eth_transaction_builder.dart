@@ -14,6 +14,7 @@ class SwapTokenForEthTransactionBuilder implements Transaction{
   final BigInt? gasPrices;
   final BigInt? gasAmount;
   final int? nonces;
+  final double slippage;
   SwapTokenForEthTransactionBuilder({
     required this.amountIn,
     required this.amountOut,
@@ -24,7 +25,8 @@ class SwapTokenForEthTransactionBuilder implements Transaction{
     required this.deadline,
     this.gasAmount,
     this.nonces,
-    this.gasPrices
+    this.gasPrices,
+    this.slippage = 0.5,
   });
   @override
   Transaction copyWith({EthereumAddress? from, EthereumAddress? to, int? maxGas, EtherAmount? gasPrice, EtherAmount? value, Uint8List? data, int? nonce}) {
@@ -50,7 +52,7 @@ class SwapTokenForEthTransactionBuilder implements Transaction{
   List<dynamic> get parameters{
     return [
       amountIn,
-      amountOut,
+      amountOutMinSlippage,
       path,
       from,
       BigInt.from(deadline),
@@ -66,7 +68,9 @@ class SwapTokenForEthTransactionBuilder implements Transaction{
   Uint8List get data => function.encodeCall(
     [parameters]
   );
-
+  BigInt get amountOutMinSlippage{
+    return amountOut - (amountOut * BigInt.from((slippage / 100)));
+  }
   @override
   EthereumAddress get from => EthereumAddress.fromHex(fromAddress);
 

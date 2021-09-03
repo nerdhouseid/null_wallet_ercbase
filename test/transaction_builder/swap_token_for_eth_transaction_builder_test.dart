@@ -27,6 +27,9 @@ void main(){
     fromAddress: _fromAddress, 
     deadline: deadline
   );
+  
+  var _slippage = 0.5;
+  var _amountOutMinSlippage = _amountOut - (_amountOut * BigInt.from((_slippage / 100)));
   group(
     'swap eth for token transaction builder test : ',
     (){
@@ -54,7 +57,7 @@ void main(){
           test(
             'transaction first parameter value must be same with desired amount output',
             (){
-              expect(_amountOut, transaction.parameters[1]);
+              expect(_amountOutMinSlippage, transaction.parameters[1]);
             }
           );
           test(
