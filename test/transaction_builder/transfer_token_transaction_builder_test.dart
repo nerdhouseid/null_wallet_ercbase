@@ -1,29 +1,29 @@
 import 'dart:typed_data';
 
-import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction.dart';
+import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction_builder.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:web3dart/credentials.dart';
-Uint8List _data = Uint8List.fromList([169, 5, 156, 187, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 81, 18, 150, 81, 58, 242, 0, 31, 128, 164, 83, 9, 199, 213, 252, 220, 3, 115, 140, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 150, 128]);
-BigInt _amount = BigInt.from(10000000);
-String _fromAddress = "0x1107c3c8Fc6C40c109A0E77762a69b25e927348B";
-String _toAddress = "0x1f511296513Af2001F80a45309c7D5FcDc03738C";
-String _contractAddress = "0xdbc941fec34e8965ebc4a25452ae7519d6bdfc4e";
+var _data = Uint8List.fromList([169, 5, 156, 187, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 81, 18, 150, 81, 58, 242, 0, 31, 128, 164, 83, 9, 199, 213, 252, 220, 3, 115, 140, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 150, 128]);
+var _amount = BigInt.from(10000000);
+var _fromAddress = '0x1107c3c8Fc6C40c109A0E77762a69b25e927348B';
+var _toAddress = '0x1f511296513Af2001F80a45309c7D5FcDc03738C';
+var _contractAddress = '0xdbc941fec34e8965ebc4a25452ae7519d6bdfc4e';
 
 void main(){
-  var transaction = TransferTokenTransaction(
+  var transaction = TransferTokenTransactionBuilder(
     fromAddress: _fromAddress, 
     toAddress: _toAddress, 
     contractAddress: _contractAddress, 
     amount: _amount,
   );
   group(
-    "transfer token transaction test : ",
+    'transfer token transaction test : ',
     (){
       test(
         'transaction function must be transfer',
         (){
-          expect("transfer", transaction.function.name);
+          expect('transfer', transaction.function.name);
         }
       );
       group(
@@ -73,7 +73,7 @@ void main(){
         'to address must be same with expected to address',
         (){
           expect(_toAddress.toLowerCase(), transaction.toAddress.toLowerCase());
-          expect(_toAddress.toLowerCase(), transaction.to.hex.toLowerCase());
+          expect(_toAddress.toLowerCase(), transaction.receipent.hex.toLowerCase());
         }
       );
       test(

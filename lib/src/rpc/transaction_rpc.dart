@@ -6,7 +6,7 @@ import 'package:web3dart/web3dart.dart';
 import '../wallet/wallet.dart';
 /// Transaction Rpc
 class TransactionRpc{
-  final http.Client httpClient = new http.Client();
+  final http.Client httpClient = http.Client();
   Future<BigInt> getGasPrice({
     required String url
   })async{

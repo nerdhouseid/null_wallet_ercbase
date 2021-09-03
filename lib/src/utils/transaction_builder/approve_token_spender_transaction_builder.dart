@@ -34,7 +34,7 @@ class ApproveTokenSpenderTransactionBuilder implements Transaction{
     );
   }
   ContractAbi get abi{
-    return ContractAbi.fromJson(SmartContract.tokenJsonAbi, "ERC-20");
+    return ContractAbi.fromJson(SmartContract.tokenJsonAbi, 'ERC-20');
   }
   DeployedContract get deployedContract{
     return DeployedContract(
@@ -42,13 +42,13 @@ class ApproveTokenSpenderTransactionBuilder implements Transaction{
       to,
     );
   }
-  ContractFunction get function => deployedContract.function("approve");
+  ContractFunction get function => deployedContract.function('approve');
   List<dynamic> get parameters => [
     spender,
     BigInt.from(ConstantNumber.allowance),
   ];
   @override
-  Uint8List? get data => this.deployedContract.function("approve").encodeCall(
+  Uint8List? get data => deployedContract.function('approve').encodeCall(
     parameters
   );
 
@@ -56,7 +56,7 @@ class ApproveTokenSpenderTransactionBuilder implements Transaction{
   EthereumAddress get to => EthereumAddress.fromHex(contractAddress);
 
   @override
-  EthereumAddress? get from => EthereumAddress.fromHex(fromAddress);
+  EthereumAddress get from => EthereumAddress.fromHex(fromAddress);
   
   EthereumAddress get spender => EthereumAddress.fromHex(spenderAddress);
 

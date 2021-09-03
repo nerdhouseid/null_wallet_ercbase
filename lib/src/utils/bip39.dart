@@ -5,7 +5,7 @@ class Bip39{
   static String generateMnemonic(){
     return bip39.generateMnemonic();
   }
-  static Uint8List mnemonicToSeed({required String mnemonic, String passphrase= "" }){
+  static Uint8List mnemonicToSeed({required String mnemonic, String passphrase= '' }){
     return bip39.mnemonicToSeed(mnemonic,passphrase: passphrase);
   }
   static bool validateMnemnoic({required String mnemonic}){

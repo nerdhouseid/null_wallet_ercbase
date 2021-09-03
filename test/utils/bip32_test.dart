@@ -5,10 +5,10 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 Uint8List _seedBytes = Uint8List.fromList([236, 162, 114, 212, 111, 2, 151, 229, 157, 167, 189, 0, 85, 150, 82, 234, 106, 58, 106, 178, 255, 157, 94, 26, 168, 122, 201, 242, 38, 249, 68, 82, 230, 247, 197, 66, 176, 139, 27, 54, 243, 92, 139, 213, 68, 67, 41, 51, 70, 102, 193, 156, 51, 206, 79, 145, 112, 68, 0, 75, 226, 14, 177, 122]);
-String _privateKey = "0x1257e60bd3fd9e5c30ff056a23035374acbf9487a03a67d8b1a10d327d308c09";
-String _publicKey = "0x028340a27dc0229d6e72c44453f6768ac4e4e21e8385f0523518cee956105ee88a";
+var _privateKey = '0x1257e60bd3fd9e5c30ff056a23035374acbf9487a03a67d8b1a10d327d308c09';
+var _publicKey = '0x028340a27dc0229d6e72c44453f6768ac4e4e21e8385f0523518cee956105ee88a';
 void main(){
-  Bip32 bip32 = Bip32.fromSeed(seed: _seedBytes);
+  var bip32 = Bip32.fromSeed(seed: _seedBytes);
   group(
     'Test Bip32 : ',
     (){
