@@ -1,28 +1,26 @@
 A ErcBase library from Null Wallet.
-[![Build Status](https://github.com/dart-lang/http/workflows/Dart%20CI/badge.svg)](https://github.com/dart-lang/http/actions?query=workflow%3A"Dart+CI"+branch%develop)
+[![Dart](https://github.com/nerdhouseid/null_wallet_ercbase/actions/workflows/dart.yml/badge.svg?branch=develop)](https://github.com/nerdhouseid/null_wallet_ercbase/actions/workflows/dart.yml)
 
 ## Usage
 
-A simple usage example:
+Creating Wallet:
 
 ```dart
-import 'dart:math';
-import 'package:ercbase/src/rpc/transaction_rpc.dart';
-import 'package:ercbase/src/utils/transaction_builder/transfer_token_transaction.dart';
-import 'package:ercbase/src/wallet/wallet.dart';
-import 'package:web3dart/web3dart.dart';
-
-void main() async{
   var mnemonic = "social stomach omit clog carbon reward rail credit gasp two mobile dove";
   var wallet = ErcBaseWallet.fromMnemonic(mnemonic: mnemonic);
-  var kucoinRpcTestnet = "https://rpc-testnet.kcc.network";
-  var kucoinTestnetChainId = 322;
-  var transactionRpc = TransactionRpc();
-  // get current gas price
-  var gasPrice = await transactionRpc.getGasPrice(url: kucoinRpcTestnet);
-  // 1000000000 (wei)
-  print(gasPrice);
+   // wallet address
+  print(wallet.address);
+  // private key wallet
+  print(wallet.privateKey);
+  // public key wallet
+  print(wallet.publicKey);
+```
 
+Using Transaction Builder :
+
+```dart
+  var gasPrice = BigInt.from(1000000000);
+  // 1000000000 (wei)
   var transactionBuilder = TransferTokenTransaction(
     fromAddress: wallet.address, // sender address 
     toAddress: "0x1f511296513Af2001F80a45309c7D5FcDc03738C", // receipent address
@@ -32,6 +30,16 @@ void main() async{
     ), // amount in decimal token (18)
     gasPrices: gasPrice,
   );
+```
+Using Transaction RPC : 
+```dart
+  var kucoinRpcTestnet = "https://rpc-testnet.kcc.network";
+  var kucoinTestnetChainId = 322;
+  var transactionRpc = TransactionRpc();
+  // get current gas price
+  var gasPrice = await transactionRpc.getGasPrice(url: kucoinRpcTestnet);
+  // 1000000000 (wei)
+  print(gasPrice);
 
   // estimate gas amount
   var gasAmount = await transactionRpc.estimateGasAmount(
@@ -43,6 +51,8 @@ void main() async{
   );
   // 41256
   print(gasAmount);
+  
+  // always use Transaction builder for executing smart contract
   var executeSmartContract = await transactionRpc.executeSmartContract(
     url: kucoinRpcTestnet, 
     chainId: kucoinTestnetChainId, 
@@ -54,8 +64,6 @@ void main() async{
   );
   // 0xe6b20a2470018115441de97d6f906308b38a4a2961f8a2ce6b29eebbaeaf95b1
   print(executeSmartContract);
-  return;
-}
 ```
 
 ## Features and bugs

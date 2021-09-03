@@ -21,7 +21,7 @@ class ErcBaseWallet{
   });
   factory ErcBaseWallet.fromMnemonic({
     required String mnemonic,
-    String phrase = "",
+    String phrase = '',
   }){
     var seed = Bip39.mnemonicToSeed(mnemonic: mnemonic,passphrase: phrase,);
     var bip32 = Bip32.fromSeed(seed: seed);
@@ -57,7 +57,7 @@ class ErcBaseWallet{
     return ErcBaseWallet._(
       privateKey: pk.toHex(), 
       publicKey: pk.publicKey.toHex(), 
-      mnemonic: "",
+      mnemonic: '',
       address: with0x(value: address)
     );
   }

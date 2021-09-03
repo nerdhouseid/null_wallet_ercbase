@@ -17,24 +17,24 @@ class Bip32{
     return Bip32(node:node.derivePath(WalletConstant.DERIVATION_PATH).derive(0));
   }
   Uint8List get privateKeyBytes{
-    if(this.node.privateKey == null){
-      throw Exception("Cannot get private key");
+    if(node.privateKey == null){
+      throw Exception('Cannot get private key');
     }
-    return this.node.privateKey!;
+    return node.privateKey!;
   }
   Uint8List get publicKeyBytes{
-    return this.node.publicKey;
+    return node.publicKey;
   }
   String get privateKeywith0x{
-    return with0x(value: HEX.encode(this.privateKeyBytes));
+    return with0x(value: HEX.encode(privateKeyBytes));
   }
   String get publicKeyWith0x{
-    return with0x(value: HEX.encode(this.publicKeyBytes));
+    return with0x(value: HEX.encode(publicKeyBytes));
   }
   String get publicKey{
-    return HEX.encode(this.publicKeyBytes);
+    return HEX.encode(publicKeyBytes);
   }
   String get privateKey{
-    return HEX.encode(this.privateKeyBytes);
+    return HEX.encode(privateKeyBytes);
   }
 }

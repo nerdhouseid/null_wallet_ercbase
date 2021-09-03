@@ -1,13 +1,19 @@
 import 'dart:math';
 import 'package:null_wallet_ercbase/src/rpc/transaction_rpc.dart';
-import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction.dart';
+import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction_builder.dart';
 import 'package:null_wallet_ercbase/src/wallet/wallet.dart';
 import 'package:web3dart/web3dart.dart';
 
 void main() async{
-  var mnemonic = "social stomach omit clog carbon reward rail credit gasp two mobile dove";
+  var mnemonic = 'social stomach omit clog carbon reward rail credit gasp two mobile dove';
   var wallet = ErcBaseWallet.fromMnemonic(mnemonic: mnemonic);
-  var kucoinRpcTestnet = "https://rpc-testnet.kcc.network";
+  // wallet address
+  print(wallet.address);
+  // private key wallet
+  print(wallet.privateKey);
+  // public key wallet
+  print(wallet.publicKey);
+  var kucoinRpcTestnet = 'https://rpc-testnet.kcc.network';
   var kucoinTestnetChainId = 322;
   var transactionRpc = TransactionRpc();
   // get current gas price
@@ -15,10 +21,10 @@ void main() async{
   // 1000000000 (wei)
   print(gasPrice);
 
-  var transactionBuilder = TransferTokenTransaction(
+  var transactionBuilder = TransferTokenTransactionBuilder(
     fromAddress: wallet.address, // sender address 
-    toAddress: "0x1f511296513Af2001F80a45309c7D5FcDc03738C", // receipent address
-    contractAddress: "0x07d169f52fcb96a9f56325f510528e0d65ca4952",  // token address (DAI Testnet),
+    toAddress: '0x1f511296513Af2001F80a45309c7D5FcDc03738C', // receipent address
+    contractAddress:'0x07d169f52fcb96a9f56325f510528e0d65ca4952',  // token address (DAI Testnet),
     amount: BigInt.from(
       1 * pow(10, 18)
     ), // amount in decimal token (18)

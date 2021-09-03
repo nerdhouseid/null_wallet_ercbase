@@ -4,7 +4,7 @@ import 'package:web3dart/web3dart.dart';
 
 import '../smartcontract.dart';
 /// Transfer token transaction builder
-class TransferTokenTransaction implements Transaction{
+class TransferTokenTransactionBuilder implements Transaction{
   /// sender address
   final String fromAddress;
   /// receipent address
@@ -19,7 +19,7 @@ class TransferTokenTransaction implements Transaction{
   final BigInt? gasAmount; 
   /// nonce
   final int? nonces;
-  TransferTokenTransaction({
+  TransferTokenTransactionBuilder({
     required this.fromAddress, /// sender address
     required this.toAddress, /// receipent address
     required this.contractAddress, /// token address
@@ -41,7 +41,7 @@ class TransferTokenTransaction implements Transaction{
     );
   }
   ContractAbi get abi{
-    return ContractAbi.fromJson(SmartContract.tokenJsonAbi, "ERC-20");
+    return ContractAbi.fromJson(SmartContract.tokenJsonAbi, 'ERC-20');
   }
   DeployedContract get deployedContract{
     return DeployedContract(
@@ -49,13 +49,13 @@ class TransferTokenTransaction implements Transaction{
       to,
     );
   }
-  ContractFunction get function => deployedContract.function("transfer");
+  ContractFunction get function => deployedContract.function('transfer');
   List<dynamic> get parameters => [
     receipent,
     amount,
   ];
   @override
-  Uint8List? get data => this.deployedContract.function("transfer").encodeCall(
+  Uint8List? get data => deployedContract.function('transfer').encodeCall(
     parameters
   );
 

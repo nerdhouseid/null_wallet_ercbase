@@ -33,7 +33,7 @@ class WrappingEthTransactionBuilder implements Transaction{
     );
   }
   ContractAbi get abi{
-    return ContractAbi.fromJson(SmartContract.wrappedTokenAbi, "ERC-20");
+    return ContractAbi.fromJson(SmartContract.wrappedTokenAbi, 'ERC-20');
   }
   DeployedContract get deployedContract{
     return DeployedContract(
@@ -41,13 +41,13 @@ class WrappingEthTransactionBuilder implements Transaction{
       to,
     );
   }
-  ContractFunction get function => deployedContract.function("deposit");
+  ContractFunction get function => deployedContract.function('deposit');
 
   List<dynamic> get parameters => [
     
   ];
   @override
-  Uint8List? get data => this.deployedContract.function("deposit").encodeCall(
+  Uint8List? get data => deployedContract.function('deposit').encodeCall(
     []
   );
 
@@ -55,7 +55,7 @@ class WrappingEthTransactionBuilder implements Transaction{
   EthereumAddress get to => EthereumAddress.fromHex(contractAddress);
 
   @override
-  EthereumAddress? get from => EthereumAddress.fromHex(fromAddress);
+  EthereumAddress get from => EthereumAddress.fromHex(fromAddress);
 
   @override
   EtherAmount? get gasPrice => gasPrices == null ? null : EtherAmount.inWei(gasPrices!);
