@@ -8,6 +8,9 @@ export 'get_amount_in_builder.dart';
 export 'get_amount_out_builder.dart';
 export 'get_pair_builder.dart';
 export 'get_reserves_builder.dart';
+export 'get_swap_data_builder.dart';
+export 'get_allowance_builder.dart';
+export 'get_token0_address_builder.dart';
 
 class RpcCallBuilder{
   final DeployedContract contract;

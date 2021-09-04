@@ -1,9 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:null_wallet_ercbase/src/utils/rpc_call_builder/rpc_call_builder.dart';
-import 'package:null_wallet_ercbase/src/utils/smartcontract.dart';
 import 'package:web3dart/contracts.dart';
 import 'package:web3dart/credentials.dart';
+
+import '../smartcontract.dart';
+import 'rpc_call_builder.dart';
+
 part 'get_amount_in_builder.g.dart';
 
 /// get amount input

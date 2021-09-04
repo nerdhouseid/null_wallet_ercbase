@@ -1,5 +1,5 @@
-import 'package:null_wallet_ercbase/src/utils/rpc_call_builder/get_reserves_builder.dart';
-import 'package:null_wallet_ercbase/src/utils/smartcontract.dart';
+import 'package:null_wallet_ethereum/src/utils/rpc_call_builder/get_reserves_builder.dart';
+import 'package:null_wallet_ethereum/src/utils/smartcontract.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:web3dart/contracts.dart';

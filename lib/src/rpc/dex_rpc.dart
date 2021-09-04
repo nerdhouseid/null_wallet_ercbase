@@ -157,4 +157,23 @@ class DexRpc{
     }
     return priceImpact;
   }
+  Future<GetAllowanceResponse> getAllowance({
+    required String url,
+    required RpcCallBuilder builder
+  })async{
+    try{
+      var web3 = Web3Client(url, httpClient);
+      var response  = await web3.call(
+        contract: builder.contract,
+        function: builder.contract.function(builder.function),
+        params: builder.parameters,
+      );
+      return GetAllowanceResponse.fromRpc(response);
+    } on RangeError{
+      throw Exception('Invalid range');
+    }
+    catch(e){
+      throw Exception(e);
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:null_wallet_ercbase/src/utils/transaction_builder/transfer_token_transaction_builder.dart';
+import 'package:null_wallet_ethereum/src/utils/transaction_builder/transfer_token_transaction_builder.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:web3dart/credentials.dart';
