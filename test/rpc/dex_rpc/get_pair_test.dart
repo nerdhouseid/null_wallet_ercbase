@@ -1,6 +1,6 @@
-import 'package:null_wallet_ercbase/src/rpc/dex_rpc.dart';
-import 'package:null_wallet_ercbase/src/utils/constant.dart';
-import 'package:null_wallet_ercbase/src/utils/rpc_call_builder/get_pair_builder.dart';
+import 'package:null_wallet_ethereum/src/rpc/dex_rpc.dart';
+import 'package:null_wallet_ethereum/src/utils/constant.dart';
+import 'package:null_wallet_ethereum/src/utils/rpc_call_builder/get_pair_builder.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:web3dart/credentials.dart';

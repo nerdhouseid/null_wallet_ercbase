@@ -1,7 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:null_wallet_ercbase/src/utils/smartcontract.dart';
 import 'package:web3dart/web3dart.dart';
+
+import '../smartcontract.dart';
 
 class SwapTokenForEthTransactionBuilder implements Transaction{
   final BigInt amountIn;

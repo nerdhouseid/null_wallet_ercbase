@@ -1,4 +1,4 @@
-import 'package:null_wallet_ercbase/ercbase.dart';
+import 'package:null_wallet_ethereum/ercbase.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

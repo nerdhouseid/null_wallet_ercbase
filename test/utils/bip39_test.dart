@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:null_wallet_ercbase/src/utils/bip39.dart';
+import 'package:null_wallet_ethereum/src/utils/bip39.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 var _mnemonic = 'social stomach omit clog carbon reward rail credit gasp two mobile dove';
