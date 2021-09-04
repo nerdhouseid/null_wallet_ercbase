@@ -16,21 +16,29 @@ class GetReservesResponse extends Equatable{
     required: true
   )
   final BigInt reserve1;
+  final String token0Address;
+  final String token1Address;
   GetReservesResponse({
     required this.reserve0,
-    required this.reserve1
+    required this.reserve1,
+    required this.token0Address,
+    required this.token1Address,
   });
 
-  factory GetReservesResponse.fromRpc(List<dynamic> json){
+  factory GetReservesResponse.fromRpc(List<dynamic> json, String token0Address, String token1Address){
     if(json.isEmpty){
       return GetReservesResponse(
         reserve0: BigInt.zero,
         reserve1: BigInt.zero,
+        token0Address : token0Address,
+        token1Address : token1Address,
       );
     }
     return GetReservesResponse(
       reserve0: BigInt.parse(json[0].toString()), 
       reserve1: BigInt.parse(json[1].toString()),
+      token0Address : token0Address,
+      token1Address : token1Address,
     );
   }
   factory GetReservesResponse.fromJson(Map<String, dynamic> json) => _$GetReservesResponseFromJson(json);
@@ -45,9 +53,13 @@ class GetReservesResponse extends Equatable{
 
 class GetReservesBuilder extends RpcCallBuilder{
   final String lpAddress;
+  final String token0Address;
+  final String token1Address;
 
   GetReservesBuilder({
-    required this.lpAddress
+    required this.lpAddress,
+    required this.token0Address,
+    required this.token1Address,
   }) : super(
     contract: DeployedContract(
       ContractAbi.fromJson(SmartContract.pairFactoryJsonAbi, 'Pair'),
@@ -58,8 +70,14 @@ class GetReservesBuilder extends RpcCallBuilder{
     parameters: [],
   );
   GetReservesBuilder copyWith({
-    String? lpAddress
+    String? lpAddress,
+    String? token1Address,
+    String? token0Address,
   }){
-    return GetReservesBuilder(lpAddress: lpAddress ?? this.lpAddress);
+    return GetReservesBuilder(
+      lpAddress: lpAddress ?? this.lpAddress,
+      token0Address: token0Address ?? this.token0Address,
+      token1Address: token1Address ?? this.token1Address
+    );
   }
 }

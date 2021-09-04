@@ -7,10 +7,11 @@ part of 'get_amount_out_builder.dart';
 // **************************************************************************
 
 GetAmountOutputResponse _$GetAmountOutputResponseFromJson(
-        Map<String, dynamic> json) =>
-    GetAmountOutputResponse(
-      amountOut: BigInt.parse(json['amountOut'] as String),
-    );
+    Map<String, dynamic> json) {
+  return GetAmountOutputResponse(
+    amountOut: BigInt.parse(json['amountOut'] as String),
+  );
+}
 
 Map<String, dynamic> _$GetAmountOutputResponseToJson(
         GetAmountOutputResponse instance) =>
