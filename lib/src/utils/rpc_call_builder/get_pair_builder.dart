@@ -28,6 +28,13 @@ class GetPairResponse extends Equatable{
   factory GetPairResponse.fromJson(Map<String, dynamic> json) => _$GetPairResponseFromJson(json);
   Map<String, dynamic> toJson() => _$GetPairResponseToJson(this);
 
+  GetPairResponse copyWith({
+    String? lpAddress,
+  }){
+    return GetPairResponse(
+      lpAddress: lpAddress ?? this.lpAddress,
+    );
+  }
   @override
   List<Object?> get props => [
     lpAddress,

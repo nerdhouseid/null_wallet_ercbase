@@ -6,10 +6,11 @@ part of 'get_amount_in_builder.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetAmountInResponse _$GetAmountInResponseFromJson(Map<String, dynamic> json) =>
-    GetAmountInResponse(
-      amountIn: BigInt.parse(json['amountIn'] as String),
-    );
+GetAmountInResponse _$GetAmountInResponseFromJson(Map<String, dynamic> json) {
+  return GetAmountInResponse(
+    amountIn: BigInt.parse(json['amountIn'] as String),
+  );
+}
 
 Map<String, dynamic> _$GetAmountInResponseToJson(
         GetAmountInResponse instance) =>

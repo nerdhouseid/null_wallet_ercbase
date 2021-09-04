@@ -6,10 +6,11 @@ part of 'get_pair_builder.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetPairResponse _$GetPairResponseFromJson(Map<String, dynamic> json) =>
-    GetPairResponse(
-      lpAddress: json['lpAddress'] as String,
-    );
+GetPairResponse _$GetPairResponseFromJson(Map<String, dynamic> json) {
+  return GetPairResponse(
+    lpAddress: json['lpAddress'] as String,
+  );
+}
 
 Map<String, dynamic> _$GetPairResponseToJson(GetPairResponse instance) =>
     <String, dynamic>{
