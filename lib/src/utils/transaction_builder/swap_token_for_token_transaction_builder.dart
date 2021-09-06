@@ -67,7 +67,7 @@ class SwapExactTokenForTokenTransactionBuilder implements Transaction{
   }
   @override
   Uint8List get data => function.encodeCall(
-    [parameters]
+    parameters
   );
   BigInt get amountOutMinSlippage{
     return amountOut - (amountOut * BigInt.from((slippage / 100)));
