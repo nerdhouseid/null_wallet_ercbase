@@ -21,7 +21,7 @@ void main(){
             walletAddress: walletAddress,
             url: url
           );
-          expect(response, expectedBalance);
+          expect(response, isA<BigInt>());
         }
       );
     }
